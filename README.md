@@ -1,0 +1,1 @@
+Kinda an open-project to get me started in music-software creation, not sure what I'll do with it but it might turn into something. 
