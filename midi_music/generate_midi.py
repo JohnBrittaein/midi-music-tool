@@ -3,7 +3,6 @@ Author: John Brittain
 Date: May 24, 2025
 
 Contains classes and functions to generate MIDI data
-
 MidiMessageGenerator: Generates a varity of MIDI messages
 """
 class MidiMessageGenerator:
@@ -48,7 +47,7 @@ class MidiMessageGenerator:
     - Reset
     """
 
-    def generate_note_on(channel=0, note=60, velocity=64, duration=480):
+    def generate_note_on(self, channel=0, note=60, velocity=64, duration=480):
         """
         Generate a MIDI note on message
 
@@ -61,7 +60,8 @@ class MidiMessageGenerator:
         return [
             ('note_on', {'note': note, 'velocity': velocity, 'time': duration, 'channel': channel})
         ]
-    def generate_note_off(channel=0, note=60, velocity=64):
+    
+    def generate_note_off(self, channel=0, note=60, velocity=64):
         """
         Generate a MIDI note off message
 
@@ -74,7 +74,7 @@ class MidiMessageGenerator:
             ('note_off', {'note': note, 'velocity': velocity, 'time': 0, 'channel': channel})
         ]
 
-    def generate_midi_note(channel=0, note=60, velocity=64, duration=480):
+    def generate_midi_note(self, channel=0, note=60, velocity=64, duration=480):
         """
         Generate a MIDI note message with note on and note off
 
@@ -89,7 +89,7 @@ class MidiMessageGenerator:
             ('note_off', {'note': note, 'velocity': 0, 'time': duration, 'channel': channel})
         ]
 
-    def generate_control_change(channel=0, CCNumber=0, CCValue=0):
+    def generate_control_change(self, channel=0, CCNumber=0, CCValue=0):
         """
         Generate a MIDI control change message
 
@@ -102,7 +102,7 @@ class MidiMessageGenerator:
             ('control_change', {'channel': channel, 'control': CCNumber, 'value': CCValue})
         ]   
 
-    def generate_program_change(channel=0, Program=0):
+    def generate_program_change(self, channel=0, Program=0):
         """
         Generate a MIDI program change message
 
@@ -114,7 +114,7 @@ class MidiMessageGenerator:
             ('program_change', {'channel': channel, 'program': Program})
         ]
 
-    def generate_pitch_bend(channel=0, pitch_bend_value=8192):
+    def generate_pitch_bend(self, channel=0, pitch_bend_value=8192):
         """
         Generate a MIDI pitch bend message
 
