@@ -16,9 +16,17 @@ class MidiFileWriter:
         self.tracks = []
 
     def add_track(self, messages):
+        """Add a track to the MIDI file.
+
+        Args:
+            messages (list): List of MIDI messages to add to the track.
+        """
         self.tracks.append(messages)
 
     def save(self):
+        """Save the MIDI file to the specified location.
+        The file will be saved in the 'midi-files' directory within the current working directory.
+        """
         base_dir = os.path.dirname(os.path.abspath(__file__))
         midi_dir = os.path.join(base_dir, 'midi-files')
         os.makedirs(midi_dir, exist_ok=True)

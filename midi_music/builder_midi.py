@@ -10,8 +10,16 @@ class MidiTrackBuilder:
         self.messages = []
 
     def add(self, midi_messages):
+        """Add MIDI messages to the track.
+        Args:
+            midi_messages (list): List of MIDI messages to add.
+        """
         self.messages.extend(midi_messages)
         return self
 
     def build(self):
+        """Build the MIDI track.
+        Returns:
+            list: List of MIDI messages in the track.
+        """
         return self.messages
