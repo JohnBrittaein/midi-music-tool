@@ -4,6 +4,8 @@ from file_midi import MidiFileWriter, MidiFileReader
 
 from builder_midi import MidiTrackBuilder
 
+from utils import print_midi_message, print_midi_track, print_midi_file
+
 def main():
     """Example usage of the midi-music-tool"""
 
@@ -19,15 +21,14 @@ def main():
         program = MessageGenerator.generate_program_change(channel=0, Program=i)
         track = TrackBuilder.add(note_on).add(note_off).add(midi_note).add(cc).add(program).build()
         
-    print("MIDI messages generated")
-    print(track)
-
     # Create a MidiFileWriter instance
     FileWriter = MidiFileWriter(filename='example2.mid')
     # Add the track to the MidiFileWriter
     FileWriter.add_track(track)
     # Save the MIDI file
     FileWriter.save()
+
+    print_midi_file(FileWriter)
 
 if __name__ == "__main__":
     main()
